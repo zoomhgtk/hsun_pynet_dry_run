@@ -1,10 +1,14 @@
-#!/usr/bin/env python
-
 import telnetlib
 import time
 TELNET_PORT = 23
 TELNET_TIMEOUT = 6
 
+def send_command(remote_conn, cmd):
+	cmd = cmd.rstrip()
+	remote_conn.write(cmd + '\n')
+	time.sleep(4)
+	return remote_conn.read_very_eager()
+	
 def main():
 	ip_addr = '128.223.51.103'
 	username = 'rviews'
@@ -17,13 +21,9 @@ def main():
 	output = remote_conn.read_very_eager()
 	print output
 	
-	remote_conn.write("terminal len 0" + '\n')
-	time.sleep(2)
-	remote_conn.write("show version"+ '\n')
-	time.sleep(4)
-	output = remote_conn.read_very_eager()
+	output = send_command(remote_conn, 'terminal len 0') 
+	output = send_command(remote_conn, 'show version')
 	print output
 
 if __name__ == "__main__":
 	main()
-
