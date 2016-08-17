@@ -1,0 +1,13 @@
+(applied_python)[hsun@ip-172-30-0-4 class3]$ snmpwalk -Os -c galileo -v 1 184.105.247.70 1.3.6.1.2.1.2.2.1.2
+ifDescr.1 = STRING: FastEthernet0
+ifDescr.2 = STRING: FastEthernet1
+ifDescr.3 = STRING: FastEthernet2
+ifDescr.4 = STRING: FastEthernet3
+ifDescr.5 = STRING: FastEthernet4
+ifDescr.6 = STRING: Null0
+ifDescr.7 = STRING: Vlan1
+ifDescr.11 = STRING: Vlan127
+ifDescr.13 = STRING: Vlan157
+(applied_python)[hsun@ip-172-30-0-4 class3]$ snmpwalk -Os -c galileo -v 1 184.105.247.70 1.3.6.1.2.1.2.2.1.2.5
+ifDescr.5 = STRING: FastEthernet4
+(applied_python)[hsun@ip-172-30-0-4 class3]$
