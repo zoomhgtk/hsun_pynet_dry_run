@@ -1,5 +1,8 @@
 #! /usr/bin/env python
+
 import snmp_helper
+import sched, time
+from datetime import datetime
 
 snmp_oids = (
         ('sysName', '1.3.6.1.2.1.1.5.0', None),
@@ -18,10 +21,37 @@ snmp_user = 'pysnmp'
 auth_key = 'galileo1'
 encrypt_key = 'galileo1'
 
+
 a_user = (snmp_user, auth_key, encrypt_key)
 a_router = (ip_addr, port) 
 
-for desc, each_oid, is_count in snmp_oids:
-    snmp_data = snmp_helper.snmp_get_oid_v3(a_router, a_user, oid=each_oid)
-    output = snmp_helper.snmp_extract(snmp_data)
-    print "%s %s" % (desc, output)
+#s = sched.scheduler(time.time, time.sleep)
+
+
+def loop_the_oids(snmp_oids):
+    for desc, each_oid, is_count in snmp_oids:
+        snmp_data = snmp_helper.snmp_get_oid_v3(a_router, a_user, oid=each_oid)
+        output = snmp_helper.snmp_extract(snmp_data)
+        print "%s %s" % (desc, output)
+
+def print_current_time():
+    print datetime.now()
+
+for time_range in range(1,13):
+    print "time %d" % (time_range*10)
+    loop_the_oids(snmp_oids)
+    time.sleep(10)
+
+'''
+def run_the_loop_tasks():
+    print_current_time()
+
+    time_stemp = 100
+    time_stemp += 5
+    print time_stemp
+    loop_the_oids(snmp_oids)
+    s.enter(5, 1, run_the_loop_tasks, ())
+    s.run()
+
+run_the_loop_tasks()
+'''
