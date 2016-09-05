@@ -40,6 +40,7 @@ def print_current_time():
 for time_range in range(1,13):
     print "time %d" % (time_range*10)
     loop_the_oids(snmp_oids)
+    print "\n"
     time.sleep(10)
 
 '''

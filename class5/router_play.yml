@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  vars:
+    hostname: pynet-rtr1
+    logging_buffer: 223323
+  tasks:
+          - name: Generate a snippet
+            template: src=/home/hsun/hsun_pynet_dry_run/class5/router1.j2 dest=/home/hsun/hsun_pynet_dry_run/class5/{{hostname}}.txt
+            with_items:
+                    - {snmp_comm: galileo}

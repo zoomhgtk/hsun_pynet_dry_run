@@ -1,0 +1,5 @@
+hostname pynet-rtr1
+
+logging buffer 223323
+
+snmp-server community galileo RO
