@@ -1,0 +1,2 @@
+---
+- name: Generate config for routers from structured tasks and vars, no key word "vars" "tasks" here

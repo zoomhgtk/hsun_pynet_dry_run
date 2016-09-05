@@ -1,0 +1,4 @@
+---
+router_vars:
+        - {hostname: rtr1, logging_buffer: 23333, snmp_comm: galileo}
+        - {hostname: rtr2, logging_buffer: 22333, snmp_comm: galileo, DHCP: True, dhcp_network: 10.10.8.0}
