@@ -1,0 +1,8 @@
+hostname rtr2
+
+logging buffer 22333
+
+ip dhcp pool POOL1
+   network 10.10.8.0 255.255.255.0
+
+snmp-server community galileo RO

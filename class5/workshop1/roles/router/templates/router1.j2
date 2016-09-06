@@ -2,4 +2,9 @@ hostname {{item.hostname}}
 
 logging buffer {{item.logging_buffer}}
 
+{% if item.DHCP %}
+ip dhcp pool POOL1
+   network {{item.dhcp_network}} 255.255.255.0
+{% endif %}
+
 snmp-server community {{item.snmp_comm}} RO

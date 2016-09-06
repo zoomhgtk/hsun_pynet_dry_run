@@ -1,0 +1,6 @@
+---
+- name: Genereate config files from site.yml
+  hosts: localhost
+
+  roles:
+          - router

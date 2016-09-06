@@ -1,0 +1,6 @@
+hostname rtr1
+
+logging buffer 23333
+
+
+snmp-server community galileo RO
